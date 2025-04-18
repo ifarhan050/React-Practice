@@ -1,10 +1,10 @@
 import React from 'react'
 
-function ProjectsSidebar() {
+function ProjectsSidebar({onStartAddProject}) {
   return (
-    <aside className="w-64 bg-gray-100 p-4 border-r border-gray-300">
-      <h2 className="text-lg font-semibold mb-4">Projects</h2>
-      <ul className="space-y-2">
+    <aside className="w-1/3 bg-gray-100 py-16 px-8 border-r border-gray-300 md:w-1/4" >
+      <h2 className="text-lg font-bold mb-8 md:text-2xl uppercase">Projects</h2>
+      {/* <ul className="space-y-2">
         <li className="p-2 bg-white rounded shadow hover:bg-gray-50">
           <a href="#" className="text-gray-700">Project 1</a>
         </li>
@@ -14,10 +14,10 @@ function ProjectsSidebar() {
         <li className="p-2 bg-white rounded shadow hover:bg-gray-50">
           <a href="#" className="text-gray-700">Project 3</a>
         </li>
-      </ul>
+      </ul> */}
         <div className="mt-4">
-            <button className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-            Add Project
+            <button onClick={onStartAddProject} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+            + Add Project
             </button>
         </div>
     </aside>
