@@ -23,7 +23,7 @@ function App() {
       return {
         ...prev,
         projects:[...prev.projects, project],
-        selectedProjectId: project.id,
+        selectedProjectId: undefined,
        
       }
     });
@@ -39,7 +39,7 @@ function App() {
   return (
     <>
     <main className="h-screen flex gap-8">
-      <ProjectsSidebar onStartAddProject={handleStartAddProject}/>
+      <ProjectsSidebar onStartAddProject={handleStartAddProject} projects={SelectedProject.projects}/>
       {content}
     </main>
     </>

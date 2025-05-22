@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ProjectsSidebar({onStartAddProject}) {
+function ProjectsSidebar({onStartAddProject,projects}) {
   return (
     <aside className="w-1/3 bg-gray-100 py-16 px-8 border-r border-gray-300 md:w-1/4" >
       <h2 className="text-lg font-bold mb-8 md:text-2xl uppercase">Projects</h2>
@@ -19,6 +19,16 @@ function ProjectsSidebar({onStartAddProject}) {
             <button onClick={onStartAddProject} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
             + Add Project
             </button>
+
+            <ul className="mt-4">
+                {projects.map(project=>(
+                    <li key={project.id} className="p-2 bg-white rounded shadow hover:bg-gray-50 mb-2">
+                        <button className="text-gray-700 w-full">
+                            {project.title}
+                        </button>
+                    </li>
+                ))}
+            </ul>
         </div>
     </aside>
 
