@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import Input from './Input'
 import Modal from './Modal';
 
-function NewProject({onAddProject}) {
+function NewProject({onAddProject, onCancel}) {
 
    const titleRef = useRef(null);
     const descriptionRef = useRef(null);
@@ -47,7 +47,7 @@ function NewProject({onAddProject}) {
                 <button onClick={handleSubmit} className='bg-blue-500 text-white px-4 py-2 rounded-lg'>Save</button>
             </li>
             <li className='mb-4'>
-                <button className='bg-blue-500 text-white px-4 py-2 rounded-lg'>Cancel</button>
+                <button onClick={onCancel} className='bg-blue-500 text-white px-4 py-2 rounded-lg'>Cancel</button>
             </li>
         </menu>
         <div className=' items-center justify-center'>
