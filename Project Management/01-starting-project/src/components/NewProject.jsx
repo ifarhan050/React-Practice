@@ -22,6 +22,8 @@ function NewProject({onAddProject, onCancel}) {
             description,
             dueDate,
             id: Math.random().toString(),
+            tasks: [],
+            completed: false,
         };
         onAddProject(project);
         console.log(project);

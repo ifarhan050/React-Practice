@@ -11,6 +11,8 @@ function App() {
     selectedProjectId: undefined,
   });
  console.log(SelectedProject);
+
+ 
   const handleSelectProject = (projectId) => {
     setSelectedProject(prev=>{
       return {
@@ -71,7 +73,43 @@ function App() {
       }
     });
   }
-  content=<SelectProject project={SelectedProject.projects.find(project=>project.id===SelectedProject.selectedProjectId)} onEditProject={handleEditProject} onDeleteProject={handleDeleteProject} onCompleteProject={handleCompleteProject} />;
+
+  const handleAddTask = (projectId, task) => {
+    setSelectedProject(prev=>{
+      const updatedProjects = prev.projects.map(project => {
+        if (project.id === projectId) {
+          return {
+            ...project,
+            tasks: [...project.tasks, task],
+          };
+        }
+        return project;
+      });
+      return {
+        ...prev,
+        projects: updatedProjects,
+      };
+    });
+  };
+
+  const handleDeletetask = (projectId, taskId) => {
+    setSelectedProject(prev=>{
+      const updatedProjects = prev.projects.map(project => {
+        if (project.id === projectId) {
+          return {
+            ...project,
+            tasks: project.tasks.filter(task => task.id !== taskId),
+          };
+        }
+        return project;
+      });
+      return {
+        ...prev,
+        projects: updatedProjects,
+      };
+    });
+  };
+  content=<SelectProject project={SelectedProject.projects.find(project=>project.id===SelectedProject.selectedProjectId)} onEditProject={handleEditProject} onDeleteProject={handleDeleteProject} onCompleteProject={handleCompleteProject} onAddTask={handleAddTask} onDeleteTask={handleDeletetask} />;
   if (SelectedProject.selectedProjectId=== null) {
     content = <NewProject onAddProject={handleAddProject} onCancel={handleCancel} />;
   }

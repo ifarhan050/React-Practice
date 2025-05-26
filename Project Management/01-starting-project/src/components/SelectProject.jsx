@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaEdit, FaTrash, FaCheckCircle } from 'react-icons/fa';
 import Tasks from './Tasks';
-function SelectProject({project,onDeleteProject, onEditProject, onCompleteProject}) {
+function SelectProject({project,onDeleteProject, onEditProject, onCompleteProject, onAddTask, onDeleteTask}) {
 
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -41,7 +41,7 @@ function SelectProject({project,onDeleteProject, onEditProject, onCompleteProjec
     </p>
   </div>
     <div className="mt-8">
-        <Tasks />
+        <Tasks project={project} onAddTask={onAddTask} onDeleteTask={onDeleteTask}/>
     </div>
   </div>
   )
