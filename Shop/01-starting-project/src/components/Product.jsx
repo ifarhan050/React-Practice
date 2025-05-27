@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ShoppingCartContentContext from "../store/shopping-cart-content.jsx";
+import {ShoppingCartContentContext} from "../store/shopping-cart-content.jsx";
 export default function Product({
   id,
   image,
