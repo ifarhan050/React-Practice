@@ -1,4 +1,19 @@
+import { useEffect } from "react";
+import Progress from "./Progress";
+
+const TIMEINSECONDS=3*1000 // 3 seconds
 export default function DeleteConfirmation({ onConfirm, onCancel }) {
+
+  useEffect(() => {
+    console.log("DeleteConfirmation mounted");
+    const timer = setTimeout(() => {
+      onConfirm();
+    }, TIMEINSECONDS);
+    return () => {
+      console.log("DeleteConfirmation unmounted");
+      clearTimeout(timer);
+    };
+  },[onConfirm])
   return (
     <div id="delete-confirmation">
       <h2>Are you sure?</h2>
@@ -11,6 +26,7 @@ export default function DeleteConfirmation({ onConfirm, onCancel }) {
           Yes
         </button>
       </div>
+      <Progress timer={TIMEINSECONDS} />
     </div>
   );
 }
