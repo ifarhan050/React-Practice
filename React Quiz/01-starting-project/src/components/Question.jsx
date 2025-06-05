@@ -10,7 +10,6 @@ function Question({handleAnswer,onSkipQuestion,currentQuestion}) {
 
   if (answer.selectedAnswer) {
     timer = 1000;
-
   }
   const handleSelect=(answer)=>{
     setAnswer({selectedAnswer:answer,isCorrect:null})

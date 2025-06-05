@@ -278,9 +278,15 @@ header h1 {
   font-weight: bold;
   color: #251e2f;
 }
+#summary .correct-answer {
+  margin: 0.25rem 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+   color: #00f7a8;
+}
 
 #summary .user-answer.correct {
-  color: #054e37;
+  color: #00f7a8;
 }
 
 #summary .user-answer.wrong {
