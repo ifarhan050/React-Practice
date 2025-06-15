@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import Loader from "./Loader";
 import Error from "./UI/Error";
 
@@ -34,3 +36,20 @@ export default function Places({ title, places,isLoading,error ,fallbackText, on
     </section>
   );
 }
+Places.propTypes = {
+  title: PropTypes.string.isRequired,
+  places: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      image: PropTypes.shape({
+        src: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+      }).isRequired,
+    })
+  ).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
+  fallbackText: PropTypes.string,
+  onSelectPlace: PropTypes.func.isRequired,
+};

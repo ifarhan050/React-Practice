@@ -5,8 +5,7 @@ import Modal from "./components/Modal.jsx";
 import DeleteConfirmation from "./components/DeleteConfirmation.jsx";
 import logoImg from "./assets/logo.png";
 import AvailablePlaces from "./components/AvailablePlaces.jsx";
-import { updateUserPlaces, fetchUserPlaces } from "./http.js";
-import { sortPlacesByDistance } from "./loc.js";
+import { updateUserPlaces,fetchUserPlaces } from "./http.js";
 import useFetch from "./hooks/useFetch.js";
 function App() {
   const selectedPlace = useRef();
@@ -16,7 +15,8 @@ function App() {
     data: userPlaces,
     isFetching,
     error,
-  } = useFetch(fetchAvailableSortedPlaces, []);
+    setData: setUserPlaces,
+  } = useFetch(fetchUserPlaces, []);
   function handleStartRemovePlace(place) {
     setModalIsOpen(true);
     selectedPlace.current = place;
@@ -84,10 +84,13 @@ function App() {
         </p>
       </header>
       <main>
+
         <Places
           title="I'd like to visit ..."
           fallbackText="Select the places you would like to visit below."
           places={userPlaces}
+          isLoading={isFetching}
+          error={error}
           onSelectPlace={handleStartRemovePlace}
         />
 

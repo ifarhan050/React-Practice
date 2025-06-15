@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {fetchPlaces} from '../http.js'; // Assuming you have an API utility to fetch places
 import useFetch from '../hooks/useFetch.js';
 import Places from './Places.jsx';
@@ -38,3 +39,7 @@ export default function AvailablePlaces({ onSelectPlace }) {
     />
   );
 }
+
+AvailablePlaces.propTypes = {
+  onSelectPlace: PropTypes.func.isRequired,
+};
